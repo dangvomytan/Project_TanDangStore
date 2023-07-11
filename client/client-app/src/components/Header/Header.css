@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Play&display=swap");
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+  box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body {
+  font-family: var(--font_text);
+  
+}
+
+:root {
+  --font_logo: "Bungee Shade", cursive;
+  --font_text: "Play", sans-serif;
+  --witd_body: 1400px;
+
+  --bg-color-main: #f39c12;
+  --bg-color_menu: white;
+  --text-color: #7f8c8d;
+  --color-box_shadow: #bdc3c7;
+
+  --box_shadow: 1px 5px 10px var(--color-box_shadow);
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--box_shadow);
+  margin-bottom: var(--margin_Elements);
+}
+
+.header_container {
+  width: 100%;
+  background-color: var(--bg-color-main);
+}
+
+/* ======================== */
+.header_inner {
+  max-width: var(--witd_body);
+  margin: auto;
+  background-color: var(--bg-color-main);
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.header_inner .logo {
+  flex-basis: 24%;
+}
+
+.header_inner .logo h1 {
+  font-family: var(--font_logo);
+}
+
+.header_inner .search {
+  flex-basis: 40%;
+  position: relative;
+  border: 1px solid royalblue;
+}
+
+.header_inner .search .tbx_header_search {
+  font-size: 1.2em;
+  width: 100%;
+  height: 30px;
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  border-radius: 0.2rem;
+
+  border: none;
+  outline: none;
+}
+
+.search .btn_header_search {
+  position: absolute;
+  border: none;
+  outline: none;
+  top: 1px;
+  right: 2px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.header_inner .header_icon_nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.header_inner .header_icon_nav .nav_icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-family: var(--font_text);
+  border-radius: 0.5rem;
+}
+
+.header_inner .header_icon_nav .nav_icon:hover {
+  background-color: #e78e00;
+}
+
+.header_inner .header_icon_nav .header_nav_icon_text {
+  text-align: center;
+}
+
+/* ===================== */
+.top_nav {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 2rem;
+  display: flex;
+  /* border: 1px solid red; */
+}
+.top_nav .nav_menu {
+  width: 250px;
+  display: flex;
+
+  padding: 0.2rem;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid white;
+  text-transform: uppercase;
+}
+.top_nav .nav_menu:hover {
+  border-bottom: 3px solid var(--bg-color-main);
+}
+.top_nav .nav_menu .menu_icon {
+  /* border: 1px solid green; */
+  padding-top: 0.2rem;
+}
+.top_nav h3 {
+  font-family: var(--font_text);
+}
+
+.menu {
+  position: absolute;
+  top: 120px;
+  left: 30px;
+  z-index: 1;
+}
+
+.menu ul {
+  width: 250px;
+  border: 1px solid var(--bg-color-main);
+  background-color: var(--bg-color_menu);
+
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--box_shadow);
+  list-style: none;
+}
+
+.menu ul li {
+}
+.menu ul li .menu_item {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-color);
+  display: block;
+  padding: 0.3rem 0.7rem;
+  border-bottom: 3px solid white;
+}
+.menu ul .menu_item:hover {
+  border-bottom: 3px solid var(--bg-color-main);
+}
+.submenu {
+  /* border: 1px solid red; */
+  height: 100%;
+  position: absolute;
+  padding-left: 15px;
+  top: 0px;
+  left: 240px;
+  /* display: none; */
+}
+
+.submenu ul {
+  width: 220px;
+  border: 1px solid var(--bg-color-main);
+  background-color: var(--bg-color_menu);
+
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--box_shadow);
+  list-style: none;
+}
+.menu .menu_item {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-color);
+  display: block;
+  padding: 0.3rem 0.7rem;
+  border-bottom: 3px solid white;
+}
+
+.menu li:hover .submenu {
+  display: block;
+}
+.submenu li {
+  display: block;
+}

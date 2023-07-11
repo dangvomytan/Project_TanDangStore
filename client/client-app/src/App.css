@@ -1,0 +1,7 @@
+:root {
+  --margin_Elements: 1rem;
+}
+hr {
+  margin: 0;
+  padding: 0;
+}

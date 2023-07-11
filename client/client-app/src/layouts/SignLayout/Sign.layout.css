@@ -1,0 +1,137 @@
+:root {
+  --color-bg: ;
+  --color-border: #7f8fa6;
+  --color-outline: #70a1ff;
+  --color-white: white;
+  --color-box-shadow: #7f8fa6;
+  --color-button: #273c75;
+  --color-button-hover: #192a56;
+  --color-button-action: #273c75;
+  --color-text: #2f3542;
+  --color_text_footer: white;
+}
+.Main-body {
+  width: 100%;
+  padding: 1rem;
+}
+
+.Main_Container {
+  max-width: 1400px;
+  margin: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url(../../assets/images/mavic3seri.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.Main_Container .box_position {
+  min-width: 100%;
+  /* position: absolute; */
+  top: 50px;
+}
+
+.Main_Container .box_position .form_conten {
+  max-width: 400px;
+  margin: auto;
+  color: var(--color-text);
+  outline-color: var(--color-outline);
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.Main_Container .box_position .form_conten .box_text {
+  text-align: center;
+  font-size: 3em;
+}
+
+.Main_Container .box_position .form_conten .box_text h1 {
+  color: var(--color-white);
+  margin-bottom: 2rem;
+}
+
+.box_position .form_conten .box_form {
+  flex-wrap: wrap;
+  flex: 100%;
+  /* background-color: var(--color-white); */
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 2px 3px 20px var(--color-box-shadow);
+  background: rgba(255, 255, 255, 0.753);
+}
+
+.box_position .form_conten .box_form input {
+  padding: 0.3rem 0.5rem;
+  width: 97%;
+  border-radius: 0.3rem;
+  font-size: 1em;
+  margin: 0.4rem;
+  border: 2px solid var(--color-border);
+  outline-color: var(--color-outline);
+}
+
+.box_position .form_conten .box_form span {
+  padding: 0.3rem 0.5rem;
+}
+
+.box_position .form_conten .box_form button {
+  padding: 0.3rem 0.5rem;
+  width: 97%;
+  border-radius: 0.3rem;
+  font-size: 1em;
+  margin: 1rem 0.5rem;
+  color: var(--color-white);
+  background-color: var(--color-button);
+  border: 2px solid var(--color-button);
+}
+
+.box_position .form_conten .box_form button:hover {
+  color: var(--color-white);
+  background-color: var(--color-button-hover);
+  border: 2px solid var(--color-button-hover);
+}
+
+.box_position .form_conten .box_form button:active {
+  color: var(--color-white);
+  background-color: var(--color-button-action);
+  border: 2px solid var(--color-button-action);
+}
+
+.box_position .form_conten .box_form input[type="checkbox"] {
+  width: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer_box {
+  width: 700px;
+  margin: auto;
+  color: var(--color-white);
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.438);
+  box-shadow: 2px 3px 20px var(--color-box-shadow);
+}
+
+.footer_box a {
+  font-size: 1.2em;
+  margin: 2rem;
+  text-decoration: none;
+  color: var(--color-white);
+}
+.footer_box a:hover {
+  color: #273c75;
+}
+.footer_nav_icon {
+  width: 40%;
+  margin: auto;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-white);
+}

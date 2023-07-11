@@ -1,0 +1,28 @@
+:root {
+  --color_bg_footer: #1b1e2d;
+  --color_text_footer: white;
+}
+footer {
+  width: 100%;
+  background-color: var(--color_bg_footer);
+  color: var(--color_text_footer);
+  margin-top: var(--margin_Elements);
+}
+.footer_container {
+  max-width: 1400px;
+  /* border: 1px solid red; */
+  margin: auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.footer_container span {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.contact {
+  flex: 2;
+}
+.about {
+  flex: 1;
+}
