@@ -1,29 +1,38 @@
-// import { useDispatch } from "react-redux";
-// import { getAll } from "./redux/reducer/Demo.Slice";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCategory } from "./redux/reducer/Category.Slice";
+import { Route, Router, Routes } from "react-router-dom";
 import "./App.css";
-import RegisterPage from "./pages/Auth/Register/Register.page";
-
-
-// import { useEffect } from "react";
+import Login from './pages/Auth/Login/Login.page';
+import Register from './pages/Auth/Register/Register.page';
+import { useEffect } from "react";
 // import HomePpage from "./pages/home/Home.page";
 import HomePage from "./pages/home/Home.page";
+import { getAllType } from "./redux/reducer/Type.Slice";
 
 function App() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const getAllDemo = async () => {
-  //     await dispatch(getAll()).unwrap();
-  //   };
-  //   getAllDemo();
-  // }, []);
 
+  useEffect(() => {
+    const getCategory = async () => {
+      await dispatch(getAllCategory()).unwrap();
+    };
+    const getType = async () =>{
+      await dispatch(getAllType()).unwrap();
+    }
+    getCategory();
+    getType();
+  }, []);
   return (
     <>
-      {
-        // <HomePage />
-        <RegisterPage />
-      }
+      <Routes>
+        <Route ath="/" index element={<HomePage />} />
+
+        <Route path="/auth">
+          <Route path="login"    element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+      </Routes>
     </>
   );
 }

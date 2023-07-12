@@ -35,14 +35,19 @@ axiosClient.interceptors.response.use(
   },
   function (error) {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
-    console.log("axiosClient - response error", error.response);
-    // const { config, status, data } = error.response;
-
-    // if (config.url === "/register" && status === 400) {
-    //   throw new Error(data);
-    // }
+    // console.log("axiosClient - response error", error.response);
+    const { config, status, data } = error.response;
+    error.message = data;
+    if (config.url === "/register" && status === 400) {
+      throw new Error(data);
+    }
+    if (config.url === "/login" && status === 401) {
+      error.message = data;
+      throw new Error(data);
+    }
+    // console.log(error);
     return Promise.reject(error);
   }
 );
-
+  
 export default axiosClient;

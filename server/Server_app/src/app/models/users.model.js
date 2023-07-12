@@ -24,12 +24,12 @@ const User  = sequelize.define('User',{
      {
           timestamps: false,
      });
-     User.sync()
-       .then(() => {
-         console.log('Create successfully');
-       })
-       .catch((error) => {
-         console.log('Error create table', error);
-       });
+     // User.sync()
+     //   .then(() => {
+     //     console.log('Create successfully');
+     //   })
+     //   .catch((error) => {
+     //     console.log('Error create table', error);
+     //   });
      
      module.exports = User;

@@ -214,7 +214,7 @@ header {
   padding-left: 15px;
   top: 0px;
   left: 240px;
-  /* display: none; */
+  display: none;
 }
 
 .submenu ul {

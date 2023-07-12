@@ -3,9 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "boxicons";
 import "./Header.css";
 import { Collapse } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [menuToggle, setMenuToggle] = useState(false);
+  const listCategory = useSelector((state) => state.category);
+  const listType = useSelector((state) => state.type);
+  console.log("list category", listCategory.data);
+  console.log(">>>>",listType.data);
   return (
     <header>
       <div className="header_container">
@@ -53,144 +58,38 @@ const Header = () => {
           <Collapse in={menuToggle}>
             <div className="menu">
               <ul>
-                <li>
-                  <a href="#" className="menu_item">
-                    <b>DRONE</b>
-                  </a>
-                  <div className="submenu">
-                    <ul>
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
+                {listCategory.data?.map((category) => {
+                  return (
+                    <li key={category.id}>
+                      <a href="#" className="menu_item">
+                        <b>{category.name}</b>
+                      </a>
+                      <div className="submenu">
+                        <ul>
+                          {
+                            listType.data?.map((type)=>{
+                              if(type.id_category == category.id){
+                                return (
+                                                                  <li key={type.id}>
+                                                                    <a href="#" className="menu_item">
+                                                                      <b>{type.name}</b>
+                                                                    </a>
+                                                                  </li>
+                                                                )
+                              }
+                            })
+                          }
+                        </ul>
 
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
+                      </div>
+                    </li>
+                  )
+                })}
 
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
 
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
 
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
 
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
 
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
-
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
-
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
-
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
-
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <a href="#" className="menu_item">
-                    <b>osimo / GIMBLE</b>
-                  </a>
-                  <div className="submenu">
-                    <ul>
-                      <li>
-                        <a href="#" className="menu_item">
-                          <b>basic</b>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <a href="#" className="menu_item">
-                    <b>PHU KIEN</b>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="menu_item">
-                    <b>PHU KIEN</b>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="menu_item">
-                    <b>PHU KIEN</b>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="menu_item">
-                    <b>PHU KIEN</b>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="menu_item">
-                    <b>PHU KIEN</b>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="menu_item">
-                    <b>PHU KIEN</b>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="menu_item">
-                    <b>PHU KIEN</b>
-                  </a>
-                </li>
               </ul>
             </div>
           </Collapse>
