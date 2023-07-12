@@ -1,10 +1,11 @@
 import React from "react";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
+import ListCard from "../../components/ListCard/ListCard";
 
 const HomePage = () => {
   return (
     <>
-      <DefaultLayout> Nội dung trang chủ </DefaultLayout>
+      <DefaultLayout> <ListCard/> </DefaultLayout>
     </>
   );
 };

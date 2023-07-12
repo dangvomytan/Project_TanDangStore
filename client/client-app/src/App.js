@@ -31,6 +31,8 @@ function App() {
         <Route path="/auth">
           <Route path="login"    element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="cart"  />
+          <Route path="order"  />
         </Route>
       </Routes>
     </>

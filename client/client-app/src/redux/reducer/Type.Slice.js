@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { TypeApi } from "../../api/type.api";
+import { TypeApi } from "../../api/Type.api";
 
 
 // get all
@@ -20,8 +20,7 @@ const typeSlice = createSlice({
     },
   },
 });
-const { actions, reducer } = typeSlice;
+const { reducer } = typeSlice;
 
-// export const { logout } = actions;
 
 export default reducer;
