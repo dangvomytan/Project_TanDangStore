@@ -16,12 +16,12 @@ const Category  = sequelize.define('tbl_category',{
      {
           timestamps: false,
      });
-     Category.sync()
-       .then(() => {
-         console.log('Create table category successfully');
-       })
-       .catch((error) => {
-         console.log('Error create table', error);
-       });
+       Category.sync()
+         .then(() => {
+           console.log('Create table category successfully');
+         })
+         .catch((error) => {
+           console.log('Error create table', error);
+         });
      
      module.exports = Category;

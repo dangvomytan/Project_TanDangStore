@@ -1,7 +1,7 @@
 const Category = require('../models/category.model');
 
 class CategoryController {
-   //get all
+   // get all
    async handleGetAllCategory(req, res) {
       try {
          const categoryAll = await Category.findAll();
