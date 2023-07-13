@@ -22,7 +22,7 @@ const OverView  = sequelize.define('tbl_overView',{
           timestamps: false,
      });
      OverView.belongsTo(tbl_product, { foreignKey: 'id_product', onDelete: 'CASCADE',onUpdate: 'CASCADE'  });
-
+     tbl_product.hasMany(OverView, { foreignKey: 'id_product'});
 
      OverView.sync()
        .then(() => {

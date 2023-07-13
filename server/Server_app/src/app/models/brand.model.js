@@ -26,6 +26,7 @@ const Brand  = sequelize.define('tbl_brand',{
           timestamps: false,
      });
      Brand.belongsTo(tbl_type, { foreignKey: 'id_type', onDelete: 'CASCADE',onUpdate: 'CASCADE'  });
+     tbl_type.hasMany(Brand, { foreignKey: 'id_type'});
 
 
      Brand.sync()

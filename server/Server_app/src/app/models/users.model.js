@@ -19,17 +19,26 @@ const User  = sequelize.define('User',{
      password:{
           type:  DataTypes.STRING,
           allowNull: false,
-     }
+     },
+     role:{
+          type:  DataTypes.INTEGER,
+          allowNull: false,
+     },
+     status:{
+          type:  DataTypes.INTEGER,
+          allowNull: false,
+     },
+
      },
      {
-          timestamps: false,
+          timestamps: true,
      });
-     // User.sync()
-     //   .then(() => {
-     //     console.log('Create successfully');
-     //   })
-     //   .catch((error) => {
-     //     console.log('Error create table', error);
-     //   });
+     User.sync()
+       .then(() => {
+         console.log('Create table user successfully');
+       })
+       .catch((error) => {
+         console.log('Error create table', error);
+       });
      
      module.exports = User;

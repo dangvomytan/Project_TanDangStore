@@ -22,6 +22,7 @@ const Type  = sequelize.define('tbl_type',{
           timestamps: false,
      });
      Type.belongsTo(tbl_category, { foreignKey: 'id_category', onDelete: 'CASCADE',onUpdate: 'CASCADE'  });
+     tbl_category.hasMany(Type,{foreignKey: 'id_category'});
 
 
      Type.sync()
