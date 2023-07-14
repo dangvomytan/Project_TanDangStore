@@ -3,7 +3,7 @@ const {DataTypes} = require('sequelize');
 
 //tao bang customers
 const Customer = sequelize.define('tbl_Customer',{
-     idCustomer:{
+     id:{
           type:  DataTypes.INTEGER,
           primaryKey: true,
           autoIncrement: true,

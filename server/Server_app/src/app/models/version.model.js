@@ -13,7 +13,7 @@ const Version  = sequelize.define('tbl_version',{
           type:  DataTypes.INTEGER,
           allowNull: false,
        },
-     name:{
+     version_name:{
           type:  DataTypes.STRING,
           allowNull: false,
      },

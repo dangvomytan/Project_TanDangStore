@@ -1,4 +1,5 @@
 const Customer = require('../models/customers.model');
+const Cart = require('../models/cart.model');
 const jwt = require('jsonwebtoken');
 const sceretKey = require('../../configs/jwt.config');
 const bcrypt = require('bcryptjs');
@@ -24,6 +25,7 @@ class CustomersController {
          // console.log(">>>>>>>",{...req.body, password: hashPassword});
          // Tao khach hang moi
          const result = await Customer.create({ ...req.body, password: hashPassword });
+         await Cart.create({"id_customer":result.id});
          res.status(200).json({ message: 'create success !', dsta: result });
       } catch (error) {
          console.error(error);

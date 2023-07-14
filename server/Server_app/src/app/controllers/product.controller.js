@@ -98,10 +98,22 @@ class ProductController {
          });
          res.status(200).json({ data: productAll });
       } catch (error) {
-         res.status(500).json({ message: 'Lỗi máy chủ' });
+         res.status(500).json({ message: 'Error server' });
       }
    }
-
+   //add all info products
+   async handleAddProductAll(req, res) {
+      try {
+         const {id_type,product_name,version_name,quantity,price,description} =req.body;
+         console.log(req.body);
+         const rsProduct = await Product.create({id_type,product_name});
+         const rsVersion = await Version.create({id_product: rsProduct.id,version_name,quantity,price,description});
+         res.status(200).json({ message: 'create success!', data: rsVersion });
+      } catch (error) {
+         console.error(error);
+         res.status(500).json({ message: error });
+      }
+   }
 }
 
 module.exports = new ProductController();
