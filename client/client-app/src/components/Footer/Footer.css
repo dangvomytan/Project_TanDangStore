@@ -6,7 +6,6 @@ footer {
   width: 100%;
   background-color: var(--color_bg_footer);
   color: var(--color_text_footer);
-  margin-top: var(--margin_Elements);
 }
 .footer_container {
   max-width: 1400px;

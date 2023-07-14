@@ -1,0 +1,144 @@
+.body_cart {
+     /* border: 1px solid green; */
+     display: grid;
+     grid-template-columns: repeat(7, 1fr);
+     gap: 1rem;
+     margin-bottom: 1rem;
+
+}
+
+.cart-grid-1 {
+     grid-column-start: 1;
+     grid-column-end: 6;
+     /* border: 1px solid green; */
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 1rem;
+}
+.item-grid
+{
+     border: 1px solid blue;
+     font-size: 1.3em;
+     text-align: center;
+     border-radius: 0.5rem;
+}
+.cart_image
+{
+     height: auto;
+}
+.cart_image img
+{
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     object-position: center;
+     border-radius: 0.5rem;
+
+}
+.cart_name
+{
+padding: 0.5rem;
+
+}
+.cart_price
+{
+     padding: 0.3rem;
+     color: red;
+}
+.qty_box
+{
+     display: flex;
+     justify-content: center;;
+     gap: 0.3rem;
+}
+.qty_box .btn_qty
+{
+     padding: 0.5rem 1rem;
+     border: 1px solid var(--bg-color-main);
+     border-radius: 0.5rem;
+}
+.qty_box .tbx_qty
+{
+     padding: 0.5rem 1rem;
+     width: 5rem;
+     text-align: center;
+     border: 1px solid var(--bg-color-main);
+     border-radius: 0.5rem;
+}
+.btn_del
+{
+     padding: 0.8rem 2rem;
+     text-align: center;
+     border: 1px solid var(--bg-color-main);
+     border-radius: 0.5rem;
+}
+.act_box
+{
+     padding: 0.5rem;
+     margin-bottom: 0.5rem;
+     display: flex;
+     gap: 0.5rem;
+     justify-content: center;
+}
+/* =========================== */
+.cart-grid-2 {
+     grid-column-start: 6;
+     grid-column-end: 8;
+     /* border: 1px solid green; */
+}
+.cart_total
+{
+     border: 1px solid var(--bg-color-main);
+     border-radius: 0.5rem;
+     box-shadow: var(--box_shadow);
+
+}
+.total_title
+{
+     text-align: center;
+     font-size: 1.8em;
+     padding: 0.2rem;
+     border-bottom: 1px solid var(--bg-color-main);
+}
+.total_box
+{
+font-size: 1.3em;
+padding: 0.5rem;
+}
+.total_text
+{
+text-align: start;
+}
+.total_num
+{
+    text-align: end; 
+    font-size: 1.5em;
+    padding: 0.2rem 0;
+}
+.total_group
+{
+
+     margin: 0.5rem 0;
+}
+.btn_order_box
+{
+     padding: 1rem;
+     text-align: center;
+}
+
+.btn_order_box button 
+{
+     font-size: 1.6em;
+     padding: 1rem 2rem;
+     border: 1px solid var(--bg-color-main);
+     border-radius: 0.5;
+     text-transform: uppercase;
+     border-radius: 0.5rem;
+}
+.btn_order_box button:hover
+{
+color: white;
+background-color: var(--bg-color-main);
+     border: 1px solid var(--bg-color-main);
+
+}

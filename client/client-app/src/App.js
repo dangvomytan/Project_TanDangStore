@@ -7,7 +7,9 @@ import Register from './pages/Auth/Register/Register.page';
 import { useEffect } from "react";
 // import HomePpage from "./pages/home/Home.page";
 import HomePage from "./pages/home/Home.page";
+import DetailPage from "./pages/detail/Detail.page";
 import { getAllType } from "./redux/reducer/Type.Slice";
+import CartPage from "./pages/cart/Cart.page";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,12 +28,13 @@ function App() {
   return (
     <>
       <Routes>
-        <Route ath="/" index element={<HomePage />} />
+        <Route path="/" index element={<HomePage />} />
+        <Route path="/detail" element={<DetailPage/> } />
 
         <Route path="/auth">
           <Route path="login"    element={<Login />} />
           <Route path="register" element={<Register />} />
-          <Route path="cart"  />
+          <Route path="cart"  element={<CartPage/>}/>
           <Route path="order"  />
         </Route>
       </Routes>

@@ -29,8 +29,8 @@ const ListCard = () => {
                                         </div>
                                    </div>
                               <div className='card_text'>
-                                   <div className='cart_title'>DJI Mavic 3 Pro</div>
-                                   <div className='cart_price'>
+                                   <div className='card_title'>DJI Mavic 3 Pro</div>
+                                   <div className='card_price'>
                                         <div className='price_new'>13.500.000 VND</div>
                                         <div className='price_old'>14.000.000 VND</div>
                                    </div>
