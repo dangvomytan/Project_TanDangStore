@@ -122,6 +122,12 @@ cursor: pointer;
      color: var(--bg-color-main);
      background-color: white;
 }
+.btn_ver:hover
+{
+     border: 1px solid var(--bg-color-main);
+     color: white;
+     background-color: var(--bg-color-main);
+}
 /* ---------------------- */
 .grid-item-3 {
      grid-column-start: 1;

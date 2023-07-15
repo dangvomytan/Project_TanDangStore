@@ -10,6 +10,10 @@
      height: 25rem;
      border-radius: 0.5rem;
 }
+.body_list .card:hover
+{
+box-shadow: var(--box_shadow);
+}
 .body_list .card_image
 {
      width: 100%;
@@ -24,12 +28,12 @@
      object-fit: cover;
      object-position: center;
      border-radius: 0.5rem;
-     /* transition: transform 0.3s ease;  */
-     /* transform: scale(1.1);  */
+     transition: transform 0.3s ease; 
+     transform: scale(1.1); 
 }
 .body_list .card_image img:hover
 {
-     /* transform: scale(1.4);  */
+     transform: scale(1.2); 
 }
 .card_menmo
 {

@@ -1,5 +1,6 @@
 const Customer = require('../models/customers.model');
 const Cart = require('../models/cart.model');
+const CartItem =require('../models/cartitem.model');
 const jwt = require('jsonwebtoken');
 const sceretKey = require('../../configs/jwt.config');
 const bcrypt = require('bcryptjs');
@@ -34,10 +35,19 @@ class CustomersController {
    }
    //login customer
    async handleLogin(req, res) {
-      console.log(req.body);
+      // console.log(req.params.id);
       const { email, password } = req.body;
       try {
-         const user = await Customer.findOne({ where: { email } });
+         const user = await Customer.findOne({
+            where: {
+              email: email
+            },
+            include: [
+              {
+                model: Cart,
+              },
+            ],
+          });
          if (user) {
             const comparPassword = await bcrypt.compare(password, user.password);
           //   console.log('>>>>>>>>>>>>>>', comparPassword);

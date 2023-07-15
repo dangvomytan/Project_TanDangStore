@@ -8,7 +8,7 @@ export class CustomerApi {
      }
    
      static getById(id, params) {
-       const url = `api/v1/customers/${id}`;
+       const url = `getCustomersById/${id}`;
        return axiosClient.get(url, params);
      }
    

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "boxicons";
 import "./Header.css";
@@ -20,19 +20,20 @@ const Header = () => {
   const [hasToken] = useState(localStorage.getItem("AccessToken"));
   const userLogin = useMemo(() => {
        if (hasToken) {
-            const getUser = JSON.parse(localStorage.getItem("Users"));
-            return getUser;
+            const User = JSON.parse(localStorage.getItem("Users"));
+            //get data customer
+            return User.name;
        }
   }, [hasToken])
 
-  const handleLogOut =() =>{
+
+  const handleLogOut = () => {
     dispatch(logoutCustomer());
     setTimeout(() => {
       navigate("/auth/login");
-       }, 500);
-}
-  
-console.log(userLogin);
+    }, 500);
+  };
+
   return (
     <header>
       <div className="header_container">
@@ -86,9 +87,9 @@ console.log(userLogin);
               {listCategory.data?.map((category) => {
                 return (
                   <li key={category.id}>
-                    <a href="#" className="menu_item">
+                    <Link to ={`/products?category_id=${category.id}`} className="menu_item">
                       <b>{category.name}</b>
-                    </a>
+                    </Link >
                     <div className="submenu">
                       <ul>
                         {
@@ -96,9 +97,9 @@ console.log(userLogin);
                             if (type.id_category == category.id) {
                               return (
                                 <li key={type.id}>
-                                  <a href="#" className="menu_item">
+                                  <Link to ={`/products?type_id=${type.id}`} className="menu_item">
                                     <b>{type.name}</b>
-                                  </a>
+                                    </Link >
                                 </li>
                               )
                             }

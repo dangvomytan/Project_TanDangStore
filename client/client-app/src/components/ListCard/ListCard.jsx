@@ -8,11 +8,11 @@ const ListCard = () => {
                     <div>
                          <div className='card'>
                               <div className='card_image'>
-                                   <img src='https://dji-vietnam.vn/wp-content/uploads/2023/02/DJI-mini-2-se-11.jpg'/> 
-                                   </div>
+                                   <img src='https://dji-vietnam.vn/wp-content/uploads/2023/02/DJI-mini-2-se-11.jpg' />
+                              </div>
                               <div className='card_text'>
                                    <div className='cart_title'>Ống kính DJI 17-28mm T3.0 ASPH PZ
-</div>
+                                   </div>
                                    <div className='cart_price'>31.990.000₫</div>
                               </div>
 
@@ -20,14 +20,14 @@ const ListCard = () => {
                     </div>
                     <div>
                          <div className='card'>
-                         <div className='card_image'>
-                                   <img src='https://dji-vietnam.vn/wp-content/uploads/2023/01/djimavic3classic-desk-dji-247x247.png'/> 
+                              <div className='card_image'>
+                                   <img src='https://dji-vietnam.vn/wp-content/uploads/2023/01/djimavic3classic-desk-dji-247x247.png' />
+                              </div>
+                              <div className='card_menmo'>
+                                   <div className='card_discount'>
+                                        <span>-50%</span>
                                    </div>
-                                   <div className='card_menmo'>
-                                        <div className='card_discount'>
-                                             <span>-50%</span>
-                                        </div>
-                                   </div>
+                              </div>
                               <div className='card_text'>
                                    <div className='card_title'>DJI Mavic 3 Pro</div>
                                    <div className='card_price'>

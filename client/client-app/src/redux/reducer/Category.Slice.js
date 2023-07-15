@@ -20,8 +20,6 @@ const categorySlice = createSlice({
     },
   },
 });
-const { actions, reducer } = categorySlice;
-
-// export const { logout } = actions;
+const {  reducer } = categorySlice;
 
 export default reducer;

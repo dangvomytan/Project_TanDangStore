@@ -17,10 +17,15 @@
 }
 .item-grid
 {
-     border: 1px solid blue;
-     font-size: 1.3em;
+     border: 1px solid var(--bg-color-main);
+     font-size: 1.1em;
      text-align: center;
      border-radius: 0.5rem;
+
+}
+.item-grid:hover
+{
+     box-shadow: var(--box_shadow);
 }
 .cart_image
 {
@@ -96,14 +101,13 @@ padding: 0.5rem;
 .total_title
 {
      text-align: center;
-     font-size: 1.8em;
      padding: 0.2rem;
      border-bottom: 1px solid var(--bg-color-main);
 }
 .total_box
 {
 font-size: 1.3em;
-padding: 0.5rem;
+padding: 2rem;
 }
 .total_text
 {
@@ -112,7 +116,6 @@ text-align: start;
 .total_num
 {
     text-align: end; 
-    font-size: 1.5em;
     padding: 0.2rem 0;
 }
 .total_group
@@ -128,7 +131,7 @@ text-align: start;
 
 .btn_order_box button 
 {
-     font-size: 1.6em;
+
      padding: 1rem 2rem;
      border: 1px solid var(--bg-color-main);
      border-radius: 0.5;

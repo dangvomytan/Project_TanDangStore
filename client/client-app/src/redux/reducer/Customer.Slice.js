@@ -26,8 +26,9 @@ export const loginCustomer = createAsyncThunk(
   async (payload) => {
     const responce = await CustomerApi.loginCustomer(payload);
     // console.log(">>>>",responce.data.firstName);
+    const user ={name:responce.data.firstName,id:responce.data.id, ...responce.data}
     responce &&
-      localStorage.setItem("Users", JSON.stringify(responce.data.firstName));
+      localStorage.setItem("Users", JSON.stringify(user));
     responce &&
       localStorage.setItem("AccessToken", JSON.stringify(responce.accessToken));
     return responce;
@@ -59,6 +60,7 @@ const CustomerSlice = createSlice({
       return state;
     },
     [loginCustomer.fulfilled]: (state, action) => {
+      console.log(action.payload);
       state = action.payload;
       return state;
     },

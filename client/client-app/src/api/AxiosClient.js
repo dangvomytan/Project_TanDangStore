@@ -45,6 +45,10 @@ axiosClient.interceptors.response.use(
       error.message = data;
       throw new Error(data);
     }
+    if (config.url === "/addCartItem" && status === 401) {
+      error.message = data;
+      throw new Error(data);
+    }
     // console.log(error);
     return Promise.reject(error);
   }
