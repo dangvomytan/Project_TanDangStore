@@ -13,7 +13,7 @@ import ProductPage from "./pages/product/Product.Page";
 import { getAllCategory } from "./redux/reducer/Category.Slice";
 import { getAllType } from "./redux/reducer/Type.Slice";
 import {getAllProduct} from './redux/reducer/Product.Slice'
-
+import {getAllCart} from './redux/reducer/Cart.Slice'
 function App() {
   const dispatch = useDispatch();
 
@@ -43,6 +43,14 @@ function App() {
     getProduct();
   }, []);
 
+    //get Cart
+    useEffect(() => {
+
+      const getCart = async () =>{
+        await dispatch(getAllCart()).unwrap();
+      }
+       getCart();
+    }, []);
   return (
     <>
       <Routes>

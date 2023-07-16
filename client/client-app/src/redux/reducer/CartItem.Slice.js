@@ -10,8 +10,9 @@ export const getAllCartItem = createAsyncThunk("getAllCartItem", async () => {
 
 
 // get  By Id
-export const getAllCartItemById = createAsyncThunk("getAllCartItem", async () => {
-  const responce = await CartItemApi.getCartItemById();
+export const getAllCartItemById = createAsyncThunk("getAllCartItem", async (data) => {
+  const responce = await CartItemApi.getCartItemById(data);
+  console.log(responce);
   return responce;
 });
 

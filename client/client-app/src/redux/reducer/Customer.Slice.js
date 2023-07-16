@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { CustomerApi } from "../../api/Customer.api";
 
 // get all
-export const getAll = createAsyncThunk("getAllCustomer", async () => {
+export const getAllCustomer = createAsyncThunk("getAllCustomer", async () => {
   const responce = await CustomerApi.getDataAll();
   return responce;
 });
@@ -26,7 +26,7 @@ export const loginCustomer = createAsyncThunk(
   async (payload) => {
     const responce = await CustomerApi.loginCustomer(payload);
     // console.log(">>>>",responce.data.firstName);
-    const user ={name:responce.data.firstName,id:responce.data.id, ...responce.data}
+    const user ={name:responce.data.firstName,id:responce.data.id}
     responce &&
       localStorage.setItem("Users", JSON.stringify(user));
     responce &&
@@ -47,7 +47,7 @@ const CustomerSlice = createSlice({
      }
    },
   extraReducers: {
-    [getAll.fulfilled]: (state, action) => {
+    [getAllCustomer.fulfilled]: (state, action) => {
       state = action.payload;
       return state;
     },

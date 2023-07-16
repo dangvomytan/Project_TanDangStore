@@ -53,11 +53,9 @@ const DetailProduct = () => {
   //Cick add to cart
   const handleClickAddtoCart = async (ver) => {
     const customer = JSON.parse(localStorage.getItem("Users"));
-    const id_cart = customer.tbl_cart.id;
-    console.log(id_cart);
     const item = {
       id_version: version.id,
-      id_cart: id_cart,
+      id_cart:customer.id ,
       quantity: quantity,
     }
     console.log(222,item);
@@ -77,7 +75,7 @@ const DetailProduct = () => {
   };
 
   const handleClickGoToCart = () =>{
-            navigate("/cart");
+            navigate("/auth/cart");
   }
   return (
     <>
