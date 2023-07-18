@@ -28,7 +28,7 @@ export const handleLoginUser = createAsyncThunk(
     return responce;
   }
 );
-//register 
+//update
 export const handleUpdateUser = createAsyncThunk(
   "updateuser",
   async (payload) => {

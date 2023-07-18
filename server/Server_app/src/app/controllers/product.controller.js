@@ -27,10 +27,22 @@ class ProductController {
 
    // update product
    async handleUpdateProduct(req, res) {
+      const {id, id_type,product_name} = req.body;
       try {
-         await Product.update(req.body, { where: { id: req.params.id } });
+         await Product.update(
+            {
+              id_type: id_type,
+              product_name: product_name
+            },
+            {
+              where: {
+                id: id
+              }
+            }
+          );
          res.status(200).json({ message: 'update success!'});
       } catch (error) {
+         console.log(error);
          res.status(500).json({ message: error });
       }
    }

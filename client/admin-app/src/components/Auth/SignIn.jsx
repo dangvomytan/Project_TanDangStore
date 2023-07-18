@@ -19,9 +19,7 @@ const SignIn = () => {
       await dispatch(loginCustomer(valueInput)).unwrap();
       const notify = () => toast.success("Login successfully !");
       notify();
-      setTimeout(() => {
-        navigate("/");
-      }, 1500);
+      navigate("/home");
     }
     catch (error) {
       const notify = () => toast.error(error.message);

@@ -13,7 +13,7 @@ const ListUser = () => {
   const dispatch = useDispatch();
   const dataState = useSelector(state => state.user)
   const userList = dataState.data;
-// Goi API
+  // Goi API
   const GetAllUser = async () => {
     await dispatch(handleGetAllUser()).unwrap();
   };
@@ -23,7 +23,7 @@ const ListUser = () => {
 
 
 
-  const [isUpdating, setIsUpdating] = useState(false);  
+  const [isUpdating, setIsUpdating] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     userName: '',
@@ -41,20 +41,20 @@ const ListUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(!isUpdating)// add
+    if (!isUpdating)// add
     {
-    try {
-      await dispatch(handleRegisterUser(formData)).unwrap();
-      const notify = () => toast.success("Successfully registered");
-      handleClose();
-      GetAllUser();
-      notify();
-    }
-    catch (error) {
-      // console.log(error.message);
-      const notify = () => toast.error(error.message?error.message:"Error  registered" );
-      notify();
-    }
+      try {
+        await dispatch(handleRegisterUser(formData)).unwrap();
+        const notify = () => toast.success("Successfully registered");
+        handleClose();
+        GetAllUser();
+        notify();
+      }
+      catch (error) {
+        // console.log(error.message);
+        const notify = () => toast.error(error.message ? error.message : "Error  registered");
+        notify();
+      }
     }
     else //upadater
     {
@@ -68,35 +68,37 @@ const ListUser = () => {
       }
       catch (error) {
         // console.log(error.message);
-        const notify = () => toast.error(error.message?error.message:"Error  update" );
+        const notify = () => toast.error(error.message ? error.message : "Error  update");
         notify();
       }
     }
   };
-  const handleClickAdd = () =>{
+  const handleClickAdd = () => {
     setIsUpdating(false);
     handleShow();
-    setFormData({ 
+    setFormData({
       fullName: '',
       userName: '',
       password: '',
       role: 2,
-      status: 1} );
+      status: 1
+    });
 
   }
-  const handleClickUdateUser = (data) =>{
+  const handleClickUdateUser = (data) => {
     setIsUpdating(true);
     handleShow();
     console.log(data);
     setFormData({
-    id: data.id,
-    fullName: data?.fullName,
-    userName:  data?.userName,
-    role: data?.role,
-    status: data?.status} );
+      id: data.id,
+      fullName: data?.fullName,
+      userName: data?.userName,
+      role: data?.role,
+      status: data?.status
+    });
 
   }
-  const handleClickDeleteUser = async (data) =>{
+  const handleClickDeleteUser = async (data) => {
     try {
       await dispatch(handleDeleteUser(data.id)).unwrap();
       const notify = () => toast.success("Derete successfully ");
@@ -105,11 +107,11 @@ const ListUser = () => {
       notify();
     }
     catch (error) {
-      console.log(error.messagex``);
-      const notify = () => toast.error(error.message ? error.message : "Delete error" );
+      console.log(error.messagex);
+      const notify = () => toast.error(error.message ? error.message : "Delete error");
       notify();
     }
-    
+
   }
 
   return (
@@ -135,7 +137,7 @@ const ListUser = () => {
 
             <label htmlFor="userName">Tên người dùng:</label>
             <input type="text" id="userName" name="userName" value={formData?.userName} onChange={handleChange} required />
-            
+
             <label htmlFor="role">Vai trò:</label>
             <select id="role" name="role" defaultValue={2} value={formData?.role} onChange={handleChange} required>
               <option value="1">Quản trị viên</option>
@@ -143,19 +145,19 @@ const ListUser = () => {
             </select>
 
             {!isUpdating ? (
-            <>
-              <label htmlFor="password">Mật khẩu:</label>
-              <input type="password" id="password" name="password" value={formData?.password} onChange={handleChange} required />
-            </>
-          ):(
-            <>
-            <label htmlFor="status">Trạng thái:</label>
-              <select id="status" name="status"  value={formData?.status} onChange={handleChange} required>
-              <option value="0">Ngưng hoạt động</option>
-              <option value="1">Hoạt động</option>
-            </select>
-            </>
-          )}
+              <>
+                <label htmlFor="password">Mật khẩu:</label>
+                <input type="password" id="password" name="password" value={formData?.password} onChange={handleChange} required />
+              </>
+            ) : (
+              <>
+                <label htmlFor="status">Trạng thái:</label>
+                <select id="status" name="status" value={formData?.status} onChange={handleChange} required>
+                  <option value="0">Ngưng hoạt động</option>
+                  <option value="1">Hoạt động</option>
+                </select>
+              </>
+            )}
 
 
 
@@ -163,7 +165,7 @@ const ListUser = () => {
               <Button variant="secondary" onClick={handleClose}>
                 Đóng
               </Button>
-            <Button type='submit' variant="primary" >{!isUpdating ?"Thêm":"Cập nhật"}</Button>
+              <Button type='submit' variant="primary" >{!isUpdating ? "Thêm" : "Cập nhật"}</Button>
             </Modal.Footer>
           </form>
         </Modal.Body>
@@ -186,7 +188,7 @@ const ListUser = () => {
               <th>Vai trò</th>
               <th>Trạng thái</th>
               <th>Ngày tạo</th>
-              <th><Button variant="outline-success" onClick={()=>handleClickAdd()}>Thêm mới</Button></th>
+              <th><Button variant="outline-success" onClick={() => handleClickAdd()}>Thêm mới</Button></th>
             </tr>
           </thead>
           <tbody>
@@ -202,8 +204,8 @@ const ListUser = () => {
                   </td>
                   <td>{data?.createdAt}</td>
                   <td>
-                    <Button variant="outline-primary" onClick={()=>handleClickUdateUser(data)}>Cập nhật</Button>{' '}
-                    <Button variant="outline-danger" onClick={()=>handleClickDeleteUser(data)}>Xoá</Button>{' '}
+                    <Button variant="outline-primary" onClick={() => handleClickUdateUser(data)}>Cập nhật</Button>{' '}
+                    <Button variant="outline-danger" onClick={() => handleClickDeleteUser(data)}>Xoá</Button>{' '}
                   </td>
                 </tr>
               )
