@@ -1,4 +1,5 @@
 const Version = require('../models/version.model');
+const Product = require('../models/product.model');
 
 class VersionController {
    //get all
@@ -10,7 +11,24 @@ class VersionController {
          res.status(500).json({ message: 'error server' });
       }
    }
-
+   // get versionByIdProduct
+   async handleGetVersionByIdProduct(req, res) {
+      const id = req.params.id;
+      try {
+         const versionAll = await Version.findAll({
+            include: [
+              {
+                model: Product,
+                where: { id: id },
+              },
+            ],
+          });
+         res.status(200).json({ data: versionAll });
+      } catch (error) {
+         console.log(error);
+         res.status(500).json({ message: 'error server' });
+   };
+}
    //add the version
    async handleAddVersion(req, res) {
       try {

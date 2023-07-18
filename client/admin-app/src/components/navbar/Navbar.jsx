@@ -6,7 +6,8 @@ function Navbar() {
      const router = useLocation();
   return (
      <>
-     <NavLink to={'/User'}
+     <div>
+           <NavLink to={'/User'}
      className={router.pathname === "/User" ? "item_1" : "item_1"}
      >
           <div className='item_2'>
@@ -48,7 +49,9 @@ function Navbar() {
           <div className='item_3'>
               Đơn hàng
           </div>
-     </NavLink>
+     </NavLink>  
+       
+     </div>
 </>
   )
 }

@@ -11,6 +11,8 @@ import OrderPage from "./pages/order/Order.Page";
 import CustomerPage from "./pages/customer/Customer.Page";
 import { getAllCustomer } from "./redux/reducer/Customer.Slice";
 import { getAllProduct } from "./redux/reducer/Product.Slice";
+import VersionPage from "./pages/product/Version.Page";
+import DetailVersionPage from "./pages/product/DetailVersion.Page";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,12 +29,13 @@ function App() {
     };
     handleGetAllProduct();
   }, []);
-  
   return (
     <>
       <Routes>
       <Route path="/" index element={<HomePage />} />
       <Route path="/product" element={<ProductPage />} />
+      <Route path="/version" element={<VersionPage />} />
+      <Route path="/detailversion" element={<DetailVersionPage />} />
       <Route path="/user" element={<UserPage />} >
         <Route path="list-users" />
       </Route>

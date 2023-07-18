@@ -17,7 +17,7 @@ const DefaultLayout = ({ children }) => {
       <Header setOpen={setOpen} open={open}/>
           </div>
           <div className='admin_main'>
-               <Collapse in={open} dimension="width">
+               <Collapse in={open}>
                     <div className='admin_nav'>
                     {/* ======================= */}
                     <Navbar/>

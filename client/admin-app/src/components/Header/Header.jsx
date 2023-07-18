@@ -11,7 +11,6 @@ const Header = (props) => {
           size="md"
           color="var(--color-admin-icon-menu)"
         ></box-icon>
-        haha
       </button>
     </div>
   );
