@@ -1,5 +1,6 @@
 const Customer = require('../models/customers.model');
 const Cart = require('../models/cart.model');
+const CartItem = require('../models/cartitem.model');
 const jwt = require('jsonwebtoken');
 const sceretKey = require('../../configs/jwt.config');
 const bcrypt = require('bcryptjs');
@@ -63,5 +64,24 @@ class CustomersController {
       }
    }
    //get All info Customer
+   async handleGetAllCustomer(req, res) {
+      try {
+         const data = await Customer.findAll({
+            include: [
+              {
+                model: Cart,
+                include: [
+                  {
+                    model: CartItem
+                  }
+                ]
+              }
+            ]
+          })
+         res.status(200).json({ data: data });
+      } catch (error) {
+         res.status(500).json({ message: 'error server' });
+      }
+   }
 }
 module.exports = new CustomersController();

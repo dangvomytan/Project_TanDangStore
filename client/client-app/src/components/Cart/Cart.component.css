@@ -6,7 +6,6 @@
      margin-bottom: 1rem;
 
 }
-
 .cart-grid-1 {
      grid-column-start: 1;
      grid-column-end: 6;
@@ -14,18 +13,45 @@
      display: grid;
      grid-template-columns: repeat(3, 1fr);
      gap: 1rem;
+     align-items: stretch;
+
 }
+
+.lbl_checkbox
+{
+     /* border: 2px solid green; */
+     position: relative;
+}
+.lbl_checkbox .chb_checkitem
+{
+position: absolute;
+top: 0;
+left: 0;
+z-index: 5;
+opacity: 0;
+}
+.lbl_checkbox .chb_checkitem:checked ~ .item-grid
+{
+    /* background-color: var(--bg-color-main); */
+    box-shadow:2px 5px 10px rgb(106, 97, 225);
+}
+
+
 .item-grid
 {
      border: 1px solid var(--bg-color-main);
      font-size: 1.1em;
      text-align: center;
      border-radius: 0.5rem;
+     cursor: pointer;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
 
 }
 .item-grid:hover
 {
-     box-shadow: var(--box_shadow);
+     /* box-shadow: var(--box_shadow); */
 }
 .cart_image
 {
@@ -42,13 +68,26 @@
 }
 .cart_name
 {
+     min-height: 3.1rem;
 padding: 0.5rem;
 
 }
 .cart_price
 {
-     padding: 0.3rem;
      color: red;
+     text-align: end;
+     padding: 0.4rem 1.2rem;
+}
+.cart_price_qty
+{
+     padding: 0.3rem;
+     color: gray;
+     text-align: end;
+     padding: 0.4rem 1.2rem;
+}
+.cart_price_box{
+     display: flex;
+justify-content: space-between;
 }
 .qty_box
 {
@@ -76,6 +115,13 @@ padding: 0.5rem;
      text-align: center;
      border: 1px solid var(--bg-color-main);
      border-radius: 0.5rem;
+}
+.btn_del:hover
+{
+
+     border: 1px solid var(--bg-color-main);
+     border-radius: 0.5rem;
+     background-color: azure;
 }
 .act_box
 {

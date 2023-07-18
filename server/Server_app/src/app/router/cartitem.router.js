@@ -9,4 +9,6 @@ router.get('/',(req, res) => {
 router.get('/getCartItem',cartitemController.handleGetAllCartItem);
 router.post('/addCartItem',cartitemController.handleAddCartItem);
 router.get('/addCartItemById/:id',cartitemController.handleGetCartItemById);
+router.patch('/updateQtyCartItem',cartitemController.handleUpdateQuality);
+router.delete('/deleteCartItem/:id',cartitemController.handleDeleteCartItem);
 module.exports = router;

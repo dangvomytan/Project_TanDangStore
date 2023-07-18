@@ -1,6 +1,6 @@
-const CartItem = require('../models/CartItem.model');
-const Version = require('../models/Version.model');
-const Product = require('../models/Product.model');
+const CartItem = require('../models/cartitem.model');
+const Version = require('../models/version.model');
+const Product = require('../models/product.model');
 
 class CartItemController {
    // get all
@@ -53,6 +53,37 @@ class CartItemController {
             await checkItem.save(); // Lưu lại dữ liệu sau khi cập nhật
             res.status(200).json({ message: 'Updated' });
          }
+      } catch (error) {
+         console.log(error);
+         res.status(500).json({ message: 'Internal Server Error' });
+      }
+   }
+
+   //apdate quality
+   async handleUpdateQuality(req,res){
+      const { id, quantity } = req.body;
+
+      try {
+         const result = await CartItem.update(
+            { quantity: quantity },
+            { where: { id: id } },
+          );
+         res.status(200).json({ message: 'Updated: ok ',result });
+      } catch (error) {
+         console.log(error);
+         res.status(500).json({ message: 'Internal Server Error' });
+      }
+   }
+   // delete item
+   async handleDeleteCartItem(req, res) {
+      const id = req.params.id;
+      try {
+         const result = await CartItem.destroy({
+            where: {
+              id: id
+            }
+          });
+         res.status(200).json({ message: 'Delete: ok ',result });
       } catch (error) {
          console.log(error);
          res.status(500).json({ message: 'Internal Server Error' });

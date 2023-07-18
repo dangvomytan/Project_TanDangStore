@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Play&display=swap');
+.admin_nav
+{
+     width: 15rem;
+     height: 100vh;
+     padding: 1rem;
+     background-color: #dfe4ea;
+     color: black;
+}
+.admin_nav a
+{
+     color: black;
+     text-decoration: none;
+}
+.admin_nav .item_1
+{
+     display: flex;
+     padding: 0.5rem;
+     border-radius: 0.5rem;
+
+}
+.admin_nav .active
+{
+     background-color: var(--color-admin-bg-hover);
+
+}
+.admin_nav .item_1:hover
+{
+background-color: var(--color-admin-bg-hover);
+/* color: var(--color-admin-text); */
+}
+.admin_nav .item_2
+{
+     display: flex;
+     align-items: center;
+
+}
+.admin_nav .item_3
+{
+     flex: 100%;
+     display: flex;
+     align-items: center;
+     padding-left: 0.5rem;
+     font-size: 1.2em;
+}

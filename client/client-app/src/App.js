@@ -14,6 +14,7 @@ import { getAllCategory } from "./redux/reducer/Category.Slice";
 import { getAllType } from "./redux/reducer/Type.Slice";
 import {getAllProduct} from './redux/reducer/Product.Slice'
 import {getAllCart} from './redux/reducer/Cart.Slice'
+import PayPage from "./pages/Pay/Pay.Page";
 function App() {
   const dispatch = useDispatch();
 
@@ -62,7 +63,7 @@ function App() {
           <Route path="login"    element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="cart"  element={<CartPage/>}/>
-          <Route path="order"  />
+          <Route path="pay"  element={<PayPage/>}/>
         </Route>
       </Routes>
     </>

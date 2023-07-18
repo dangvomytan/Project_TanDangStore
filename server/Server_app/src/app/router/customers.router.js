@@ -7,6 +7,7 @@ router.get('/',(req, res) => {
 
 router.post('/register',CustomersController.handelRegister);
 router.post('/login',CustomersController.handleLogin);
+router.get('/allcustomers',CustomersController.handleGetAllCustomer);
 
 
 module.exports = router;

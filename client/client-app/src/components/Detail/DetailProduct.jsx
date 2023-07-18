@@ -54,11 +54,11 @@ const DetailProduct = () => {
   const handleClickAddtoCart = async (ver) => {
     const customer = JSON.parse(localStorage.getItem("Users"));
     const item = {
-      id_version: version.id,
-      id_cart:customer.id ,
+      id_version: version?.id,
+      id_cart:customer?.id ,
       quantity: quantity,
     }
-    console.log(222,item);
+    // console.log(222,item);
     try {
       await dispatch(AddToCart(item)).unwrap();
       const notify = () => toast.success("Successfully");
@@ -118,7 +118,7 @@ const DetailProduct = () => {
             <div>
               <div ><b>Lựa chọn phiên bản:</b></div>
               <div className='ver_box'>
-                {product.tbl_versions.map((item) => {
+                {product?.tbl_versions?.map((item) => {
                   return (
                     <button className='btn_ver' onClick={() => handlechangeVer(item)}>{item.version_name}</button>
                   )
