@@ -22,18 +22,7 @@
      padding: 0.5rem;
      background-color: var(--color-admin-bg-header);
 }
-.admin_header .item_1
-{
-     /* border: 1px solid green; */
-}
-.admin_header .item_1 button
-{
-     display: flex;
-     align-items: center;
-     padding: 0.2rem;
-     border: none;
-     background-color: var(--color-admin-bg-header);
-}
+
 /* ==================================== */
 .admin_main
 {
@@ -47,3 +36,52 @@
      height: 100%;
      padding: 1rem;
 }
+
+
+/* SignupForm.css */
+
+form {
+     display: flex;
+     flex-direction: column;
+     margin: 0 auto;
+     padding: 20px;
+     border-radius: 5px;
+   }
+   
+   label {
+     margin-bottom: 5px;
+     font-weight: bold;
+   }
+   
+   input,
+   select {
+     padding: 10px;
+     margin-bottom: 10px;
+     border: 1px solid #ccc;
+     border-radius: 3px;
+     transition: border-color 0.3s ease;
+   }
+   
+   input[type="text"],
+   input[type="password"] {
+     width: 100%;
+   }
+   
+   input[type="submit"] {
+     color: white;
+     cursor: pointer;
+     border: none;
+     border-radius: 3px;
+     transition: background-color 0.3s ease;
+   }
+   
+   input[type="submit"]:hover {
+     background-color: #45a049;
+   }
+   
+   .error-message {
+     color: red;
+     margin-top: 5px;
+     font-size: 12px;
+   }
+   

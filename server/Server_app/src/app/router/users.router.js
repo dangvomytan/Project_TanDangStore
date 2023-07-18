@@ -9,5 +9,8 @@ router.get('/',(req, res) => {
 router.post('/login',UsersController.handleLogin);
 router.post('/register',UsersController.handleRegister);
 
-router.get('/getAllUsers',checkAuth,UsersController.handleGetAllUsers);
+// router.get('/getAllUsers',checkAuth,UsersController.handleGetAllUsers);
+router.get('/getAllUsers',UsersController.handleGetAllUsers);
+router.patch('/updateUsers',UsersController.handleUpDateUser);
+router.delete('/deleteUsers/:id',UsersController.handleDeleteUser);
 module.exports = router;

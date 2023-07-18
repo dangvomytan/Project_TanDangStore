@@ -6,6 +6,7 @@ import productSlice from "./Product.Slice";
 import cartItemSlice from "./CartItem.Slice";
 import CartSlice from "./Cart.Slice";
 import versionSlice from "./Version.Slice";
+import userSlice from "./User.Slice";
 
 export const rootReducer = {
   customer: customerSlice,
@@ -15,4 +16,5 @@ export const rootReducer = {
   cartItem: cartItemSlice,
   cart: CartSlice,
   version: versionSlice,
+  user: userSlice,
 };

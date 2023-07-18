@@ -25,7 +25,7 @@ const ListVersion = () => {
 
 
   const handleClickBtnDetail =(id)=>{
-     navigate(`/detailversion?ver=${id}`)
+     navigate(`/auth/detailversion?ver=${id}`)
 }
 
   return (

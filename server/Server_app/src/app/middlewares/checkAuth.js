@@ -9,7 +9,6 @@ const checkAuthentication = (req,res,next) => {
      try {
          const decoded = jwt.verify(token,sceretKey)
          console.log("decoded",decoded);
-        
          next()
      } catch (error) {
         return res.sendStatus(403)

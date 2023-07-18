@@ -57,6 +57,46 @@ class UsersController {
          res.status(500).json({ message: 'error server' });
       }
    }
-}
 
+   // update user
+   async handleUpDateUser(req, res) {
+      const {id, fullName, userName, role, status } = req.body;
+      try {
+         const result = await User.update(
+            {
+              fullName: fullName,
+              userName: userName,
+              role: role,
+              status: status,
+            },
+            {
+              where: {
+                id: id,
+              },
+            }
+          )
+         res.status(200).json({ message: 'Updated: ok ',result });
+      } catch (error) {
+         console.log(error);
+         res.status(500).json({ message: 'Internal Server Error' });
+      }
+   }
+
+   //delete user
+
+   async handleDeleteUser(req, res) {
+      try {
+         const Delete = await User.destroy({
+            where: {
+              id: req.params.id
+            }
+         })
+         res.status(200).json({ message: 'okr' });
+      } catch (error) {
+         console.log(error);
+         res.status(500).json({ message: 'error server' });
+      }
+   }
+
+}
 module.exports = new UsersController();

@@ -7,7 +7,7 @@ function Navbar() {
   return (
      <>
      <div>
-           <NavLink to={'/User'}
+           <NavLink to={'/admin/user'}
      className={router.pathname === "/User" ? "item_1" : "item_1"}
      >
           <div className='item_2'>
@@ -18,7 +18,7 @@ function Navbar() {
           </div>
      </NavLink>
 
-     <NavLink  to={'/Product'} 
+     <NavLink  to={'/auth/Product'} 
      className={router.pathname === "/User" ? "item_1" : "item_1"}
      >
           <div className='item_2'>
@@ -29,7 +29,7 @@ function Navbar() {
           </div>
      </NavLink>
 
-     <NavLink  to={'/Customer'}
+     <NavLink  to={'/auth/customer'}
      className={router.pathname === "/User" ? "item_1" : "item_1"}
       >
           <div className='item_2'>
@@ -40,7 +40,7 @@ function Navbar() {
           </div>
      </NavLink>
 
-     <NavLink  to={'/Order'} 
+     <NavLink  to={'/auth/order'} 
      className={router.pathname === "/User" ? "item_1" : "item_1"}
      >
           <div className='item_2'>

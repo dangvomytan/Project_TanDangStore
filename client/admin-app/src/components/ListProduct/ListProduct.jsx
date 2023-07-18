@@ -9,7 +9,7 @@ const ListProduct = () => {
      const navigate = useNavigate();
 
      const handleClickBtnDetail = (id) => {
-          navigate(`/version?pro=${id}`)
+          navigate(`/auth/version?pro=${id}`)
      }
 
 

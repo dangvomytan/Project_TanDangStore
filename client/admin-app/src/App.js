@@ -12,7 +12,10 @@ import CustomerPage from "./pages/customer/Customer.Page";
 import { getAllCustomer } from "./redux/reducer/Customer.Slice";
 import { getAllProduct } from "./redux/reducer/Product.Slice";
 import VersionPage from "./pages/product/Version.Page";
+import LoginPage from "./pages/Auth/Login/Login.page";
+import IsAuth from "./components/Auth/IsAuth";
 import DetailVersionPage from "./pages/product/DetailVersion.Page";
+import { handleGetAllUser } from "./redux/reducer/User.Slice";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,16 +35,22 @@ function App() {
   return (
     <>
       <Routes>
-      <Route path="/" index element={<HomePage />} />
-      <Route path="/product" element={<ProductPage />} />
-      <Route path="/version" element={<VersionPage />} />
-      <Route path="/detailversion" element={<DetailVersionPage />} />
-      <Route path="/user" element={<UserPage />} >
-        <Route path="list-users" />
-      </Route>
-      <Route path="/customer" element={<CustomerPage />} />
-      <Route path="/order" element={<OrderPage />} />
-        </Routes>
+        <Route path="/" index element={<LoginPage/>}/>
+
+        <Route path="/auth" element={<IsAuth/>}>
+          <Route path="product" element={<ProductPage />} />
+          <Route path="version" element={<VersionPage />} />
+          <Route path="detailversion" element={<DetailVersionPage />} />
+          <Route path="customer" element={<CustomerPage />} />
+          <Route path="order" element={<OrderPage />} />
+        </Route>
+
+
+        <Route path="/admin">
+          <Route path="user" element={<UserPage />} >  
+          </Route>
+        </Route>
+      </Routes>
 
     </>
   );
