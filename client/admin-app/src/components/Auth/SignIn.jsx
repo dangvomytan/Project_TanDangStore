@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink, useNavigate} from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
-import { loginCustomer } from "../../redux/reducer/Customer.Slice";
+import { handleLoginUser } from "../../redux/reducer/User.Slice";
 
 const SignIn = () => {
   const [valueInput, setValueInput] = useState([]);
@@ -16,7 +16,7 @@ const SignIn = () => {
   const handleClickSubmit = async (e) => {
     e.preventDefault();
     try {
-      await dispatch(loginCustomer(valueInput)).unwrap();
+      await dispatch(handleLoginUser(valueInput)).unwrap();
       const notify = () => toast.success("Login successfully !");
       notify();
       navigate("/home");
@@ -35,15 +35,15 @@ const SignIn = () => {
         />
       </div>
       <form onSubmit={handleClickSubmit}>
-        <span>Email</span>
+        <span>Tên tài khoản</span>
         <input
-          type="email"
-          placeholder="Email"
-          name="email"
+          type="userName"
+          placeholder="userName"
+          name="userName"
           onChange={handleOnchangeInput}
           required
         />
-        <span>Password</span>
+        <span>mật khẩu</span>
         <input
           type="password"
           placeholder="Password"
@@ -52,10 +52,10 @@ const SignIn = () => {
         />
         {/* <input type="checkbox" />Remember me */}
         <button>ĐĂNG NHẬP</button>
-        <span>Bạn chưa có tài khoản?</span>
+        {/* <span>Bạn chưa có tài khoản?</span>
         <NavLink to={"/auth/register"}>
           <b>Đăng ký ngay</b>
-        </NavLink>
+        </NavLink> */}
       </form>
     </>
   );

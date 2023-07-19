@@ -20,9 +20,9 @@ export const handleLoginUser = createAsyncThunk(
   "loginUser",
   async (payload) => {
     const responce = await UserApi.loginUser(payload);
-    const user ={name:responce.data.fullName,role:responce.data.role}
+    const user ={name:responce.data.fullName, r:responce.data.role, s:responce.data.status}
     responce &&
-      localStorage.setItem("Users", JSON.stringify(user));
+      localStorage.setItem("User", JSON.stringify(user));
     responce &&
       localStorage.setItem("AccessToken", JSON.stringify(responce.accessToken));
     return responce;

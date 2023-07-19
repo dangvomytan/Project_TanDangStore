@@ -38,6 +38,7 @@ const User  = sequelize.define('User',{
          console.log('Create table user successfully');
        })
        .catch((error) => {
+          console.log(error);
          console.log('Error create table', error);
        });
      

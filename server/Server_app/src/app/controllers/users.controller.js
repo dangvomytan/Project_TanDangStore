@@ -29,7 +29,7 @@ class UsersController {
 
    //login users
    async handleLogin(req, res) {
-     //  console.log(req.body);
+      console.log(req.body);
      const { userName, password } = req.body;
       try {
          const user = await userModel.findOne({ where: {userName} });

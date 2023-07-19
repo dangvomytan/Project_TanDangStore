@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import './Header.css';
+import { useDispatch } from "react-redux";
+import { handelLogoutUser } from "../../redux/reducer/User.Slice";
+import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
+  const dispatch =useDispatch();
+  const navigate = useNavigate();
   const { open, setOpen } = props;
+
+  const [hasToken] = useState(localStorage.getItem("AccessToken"));
+
+  const userLogin = useMemo(() => {
+       if (hasToken) {
+            const User = JSON.parse(localStorage.getItem("User"));
+            return User;
+       }
+  }, [hasToken])
+console.log(userLogin);
+
+  const handleLogOut = () => {
+    dispatch(handelLogoutUser());
+    navigate("/");
+  }
 
   return (
     <div className="item_1">
@@ -17,9 +37,9 @@ const Header = (props) => {
       </div>
 
       <div className="item_2">
-        <div>Tan Dang</div>
+        <div>{userLogin ? userLogin.name :""}</div>
         <div>
-          <button >
+          <button onClick={()=>handleLogOut()}>
             <box-icon
               name='log-out'
               size="md"

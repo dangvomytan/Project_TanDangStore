@@ -16,7 +16,6 @@ import LoginPage from "./pages/Auth/Login/Login.page";
 import IsAuth from "./components/Auth/IsAuth";
 import DetailVersionPage from "./pages/product/DetailVersion.Page";
 import { handleGetAllUser } from "./redux/reducer/User.Slice";
-import { getAllType } from "./redux/reducer/Type.Slice";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,15 +32,6 @@ function App() {
     };
     handleGetAllProduct();
   }, []);
-  //get type
-  useEffect(() => {
-
-    const getType = async () =>{
-      await dispatch(getAllType()).unwrap();
-    }
-    getType();
-  }, []);
-
   return (
     <>
       <Routes>
