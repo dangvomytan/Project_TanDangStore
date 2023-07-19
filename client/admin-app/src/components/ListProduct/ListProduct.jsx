@@ -51,7 +51,8 @@ const ListProduct = () => {
           if (!isUpdating)// add
           {
                try {
-                        await dispatch(handleAddProduct(formData)).unwrap();
+
+                    await dispatch(handleAddProduct(formData)).unwrap();
                     const notify = () => toast.success("Create successfully");
                     handleClose();
                     getProduct();
@@ -142,7 +143,7 @@ const ListProduct = () => {
                                    onChange={handleChange}
                                    required
                               >
-                                   <option value="0">----</option>
+                                   <option value="">----</option>
                                    {TypeList?.map((data) => (
                                         <option key={data?.id} value={data?.id}>
                                              {data?.name}

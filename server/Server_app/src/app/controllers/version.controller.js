@@ -31,20 +31,43 @@ class VersionController {
 }
    //add the version
    async handleAddVersion(req, res) {
+      const {id_product,version_name,quantity,price,description} =req.body;
       try {
-         const result = await Version.create(req.body);
+         const result = await Version.create({
+            id_product: id_product,
+            version_name: version_name,
+            quantity: quantity,
+            price: price,
+            description: description
+          });
          res.status(200).json({ message: 'create success !', data: result });
       } catch (error) {
+         console.log(error);
          res.status(500).json({ message: 'error server' });
       }
    }
 
    //update the version
    async handleUpdateVersion(req, res) {
+      const {id,id_product,version_name,quantity,price,description} =req.body;
       try {
-         const result = await Version.update(req.body, { where: { id: req.params.id } });
+         const result = await Version.update(
+            {
+              id_product: id_product,
+              version_name: version_name,
+              quantity: quantity,
+              price: price,
+              description: description
+            },
+            {
+              where: {
+                id: id
+              }
+            }
+          )
          res.status(200).json({ message: 'update success!', data: result });
       } catch (error) {
+         console.log(error);
          res.status(500).json({ message: 'error server' });
       }
    }
