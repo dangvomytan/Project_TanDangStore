@@ -1,9 +1,12 @@
 import React from 'react'
-import ListUser from '../../components/ListUser/ListUser'
+import DefaultLayout from '../../layouts/DefaultLayout/DefaultLayout'
+import ListOrder from '../../components/ListOrder/ListOrder'
 
 const OrderPage = () => {
   return (
-    <div><ListUser></ListUser></div>
+<DefaultLayout>
+  <ListOrder/>
+</DefaultLayout>
   )
 }
 

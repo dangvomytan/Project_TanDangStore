@@ -184,6 +184,7 @@ const ListUser = () => {
           <thead>
             <tr>
               <th>#</th>
+              <th>Tên</th>
               <th>Tên đăng nhập</th>
               <th>Vai trò</th>
               <th>Trạng thái</th>
@@ -197,6 +198,7 @@ const ListUser = () => {
               return (
                 <tr key={data?.id} >
                   <td>{index + 1}</td>
+                  <td>{data?.fullName}</td>
                   <td>{data?.userName}</td>
                   <td>{data?.role == 1 ? "Quản trị viên" : "Người dùng"}</td>
                   <td>

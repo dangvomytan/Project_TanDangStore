@@ -2,7 +2,7 @@ const sequelize = require('../../libs/database/connect.db');
 const {DataTypes} = require('sequelize');
 
 // tao bang user
-const User  = sequelize.define('User',{
+const User  = sequelize.define('tbl_user',{
      id:{
         type:  DataTypes.INTEGER,
         primaryKey: true,

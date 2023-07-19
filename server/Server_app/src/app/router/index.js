@@ -10,6 +10,7 @@ const specificationRouter = require('./specification.router');
 const orderRouter = require('./Order.router');
 const cartRouter = require('./cart.router');
 const cartitemRouter = require('./cartitem.router');
+const imagesRouter = require('./images.router');
 
 function Routers(app)
      {
@@ -25,7 +26,7 @@ function Routers(app)
           app.use('/api/v1/order',orderRouter);
           app.use('/api/v1/cart',cartRouter);
           app.use('/api/v1/cartitem',cartitemRouter);
-
+          app.use('/api/v1/images',imagesRouter);
 
 
           app.get('/',(req, res) =>{

@@ -19,7 +19,7 @@ const SignIn = () => {
       await dispatch(handleLoginUser(valueInput)).unwrap();
       const notify = () => toast.success("Login successfully !");
       notify();
-      navigate("/home");
+      navigate("/auth/home");
     }
     catch (error) {
       const notify = () => toast.error(error.message);
