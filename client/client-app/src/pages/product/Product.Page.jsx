@@ -1,10 +1,14 @@
 import React from 'react'
 import DefaultLayout from '../../layouts/DefaultLayout/DefaultLayout'
-import ProductComponent from '../../components/Product/Product'
+import Product from '../../components/Product/Product'
+import ByCategory from '../../components/ListProduct/ByCategory'
+import ByType from '../../components/ListProduct/ByType'
 
 const ProductPage = () => {
   return (
-     <DefaultLayout> <ProductComponent/> </DefaultLayout>
+     <DefaultLayout>
+       <Product/> 
+       </DefaultLayout>
   )
 }
 

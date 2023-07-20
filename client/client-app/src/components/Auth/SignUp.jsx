@@ -65,7 +65,7 @@ const SignUp = () => {
           onChange={handleOnchangeInput}
           required
         />
-        <span>Password</span>
+        <span>Mật khẩu</span>
         <input
           type="password"
           placeholder="Password"

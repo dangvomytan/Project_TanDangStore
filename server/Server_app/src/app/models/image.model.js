@@ -9,7 +9,7 @@ const Images  = sequelize.define('tbl_images',{
         primaryKey: true,
         autoIncrement: true,
      },
-     version_id:{
+     id_version:{
           type:  DataTypes.INTEGER,
           allowNull: false,
        },
@@ -25,8 +25,8 @@ const Images  = sequelize.define('tbl_images',{
      {
           timestamps: false,
      });
-     Images.belongsTo(tbl_vesion, { foreignKey: 'version_id', onDelete: 'CASCADE',onUpdate: 'CASCADE'  });
-     tbl_vesion.hasMany(Images, { foreignKey: 'version_id'});
+     Images.belongsTo(tbl_vesion, { foreignKey: 'id_version', onDelete: 'CASCADE',onUpdate: 'CASCADE'  });
+     tbl_vesion.hasMany(Images, { foreignKey: 'id_version'});
 
      Images.sync()
        .then(() => {

@@ -1,15 +1,18 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const ProductComponent = () => {
+const ByCategory = () => {
+     const location = useLocation();
      const navigate= useNavigate();
+     const searchParams = new URLSearchParams(location.search);
+     const category_id = searchParams.get('category_id');
      const [data, setData] = useState([]);
      useEffect(() => {
           const handleGetDataProduct = async () => {
                try {
                     const response = await axios.get(
-                         `http://localhost:8080/api/v1/product/get_product_version_image_pecifications_like_productName`
+                         `http://localhost:8080/api/v1/product/get-category-type-product`
                     );
                     setData(response.data.data);
                } catch (error) {
@@ -19,19 +22,19 @@ const ProductComponent = () => {
           handleGetDataProduct();
      }, []);
      // console.log(data);
-
      const handleOnClickProduct = (item) =>{
-         navigate('/versions',{state:item});     }
-
+      navigate('/versions',{state:item});
+     }
      return (
           <>
             <div className='body_list'>
               {data?.map((category) => {
-                return category?.tbl_types?.map((type) => {
-                  return type?.tbl_products?.map((product) => {
+               if(category.id == category_id){
+                return category.tbl_types.map((type) => {
+                  return type.tbl_products.map((product) => {
                     return (
-                      <div key={product.id} 
-                        onClick={() => handleOnClickProduct(product)}
+                      <div key={product.id}
+                      onClick={() => handleOnClickProduct(product)}
                       >
                         <div className='card'>
                           <div className='card_image'>
@@ -47,11 +50,11 @@ const ProductComponent = () => {
                   });
                 });
                }
-              )}
+              })}
             </div>
           </>
         );
         
 }
 
-export default ProductComponent
+export default ByCategory

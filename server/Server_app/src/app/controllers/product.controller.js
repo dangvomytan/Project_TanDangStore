@@ -2,6 +2,10 @@ const Product = require('../models/product.model');
 const Version = require('../models/version.model');
 const Specification = require('../models/specification.model');
 const OverView = require('../models/overview.model');
+const Category = require('../models/category.model');
+const Type = require('../models/type.model');
+const Image = require('../models/image.model');
+const { Op } = require('sequelize');
 
 class ProductController {
    //get product
@@ -126,6 +130,85 @@ class ProductController {
          res.status(500).json({ message: error });
       }
    }
+
+   // =============================
+// === GET ===
+   async  get_category_type_product(req, res) {
+      try {
+         const data = await Category.findAll({
+            include: [
+              {
+                model: Type,
+                include: [
+                  {
+                    model: Product
+                  }
+                ]
+              }
+            ]
+          });
+         res.status(200).json({ data: data });
+      } catch (error) {
+         console.log(error);
+         res.status(500).json({ message: 'Lỗi máy chủ' });
+      }
+   }
+
+   async  get_product_version_image_pecifications(req, res) {
+      try {
+         const data = await Product.findAll({
+            include: [
+              {
+                model: Version,
+                include: [
+                  {
+                    model: Image,
+                  },
+                  {
+                    model: Specification,
+                  },
+                ]
+              }
+            ]
+          });
+         res.status(200).json({ data: data });
+      } catch (error) {
+         console.log(error);
+         res.status(500).json({ message: 'Lỗi máy chủ' });
+      }
+   }
+
+   async  get_product_version_image_pecifications_like_productName(req, res) {
+      try {
+         const data = await Product.findAll({
+            include: [
+              {
+                model: Version,
+                include: [
+                  {
+                    model: Image
+                  },
+                  {
+                    model: Specification
+                  }
+                ]
+              }
+            ],
+            where: {
+              product_name: {
+                [Op.like]: '%SE%'
+              }
+            }
+          });
+         res.status(200).json({ data: data });
+      } catch (error) {
+         console.log(error);
+         res.status(500).json({ message: 'Lỗi máy chủ' });
+      }
+   }
+
+
+
 }
 
 module.exports = new ProductController();

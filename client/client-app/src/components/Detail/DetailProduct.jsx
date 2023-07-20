@@ -6,14 +6,46 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Toaster, toast } from 'react-hot-toast';
 import { AddToCart } from '../../redux/reducer/CartItem.Slice';
 import { getAllCartItem } from '../../redux/reducer/CartItem.Slice'
+import axios from 'axios';
 
 const DetailProduct = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const product = location.state;
+  const select = location.state;
+  console.log(select,222);
   const navigate  =  useNavigate();
+const [data, setData] = useState();
+const [product,setProduct] = useState(select.product);
+const [version, setVersion] = useState(select.version);
 
-  const [version, setVersion] = useState(product.tbl_versions[0]);
+
+
+// useEffect(() => {
+//   setProduct(selectFind);
+// }, [data]);
+// console.log(data);
+// console.log(product,2222);
+
+// console.log(select,111);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const [quantity, setquantity] = useState(1);
   console.log(version,111);
 
@@ -63,9 +95,6 @@ const DetailProduct = () => {
       await dispatch(AddToCart(item)).unwrap();
       const notify = () => toast.success("Successfully");
       notify();
-      setTimeout(() => {
-        // navigate("/auth/login");
-      }, 1500);
     }
     catch (error) {
       console.log(error.message);
@@ -93,7 +122,7 @@ const DetailProduct = () => {
         </div>
         <div className='grid-item-2'>
           <div className='detail_header'>
-            <h3><b>{product.product_name}</b></h3>
+            <h3><b>{product?.product_name}</b></h3>
           </div>
           <div className='detail_body'>
             <div className='detail_brand'><b>Thương hiệu:</b> DJI</div>

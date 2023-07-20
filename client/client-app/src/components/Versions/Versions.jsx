@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const ProductComponent = () => {
+const Versions = () => {
      const navigate= useNavigate();
      const [data, setData] = useState([]);
      useEffect(() => {
@@ -18,28 +18,29 @@ const ProductComponent = () => {
           };
           handleGetDataProduct();
      }, []);
-     // console.log(data);
+     console.log(data);
 
-     const handleOnClickProduct = (item) =>{
-         navigate('/versions',{state:item});     }
+     const handleOnClickProduct = (item,ver) =>{
+          navigate('/detail',{state:{product:item,version:ver} });
+     }
 
      return (
-          <>
+      <>
             <div className='body_list'>
-              {data?.map((category) => {
-                return category?.tbl_types?.map((type) => {
-                  return type?.tbl_products?.map((product) => {
+              {data?.map((product) => {
+                return product?.tbl_versions?.map((version) => {
+                  return version?.tbl_images?.map((images) => {
                     return (
                       <div key={product.id} 
-                        onClick={() => handleOnClickProduct(product)}
+                        onClick={() => handleOnClickProduct(product,version)}
                       >
                         <div className='card'>
                           <div className='card_image'>
-                            <img src='https://dji-vietnam.vn/wp-content/uploads/2023/01/djimavic3classic-desk-dji-247x247.png' />
+                            <img src={images.url} />
                           </div>
                           <div className='card_text'>
-                            <div className='card_title'>{product.product_name}</div>
-                            <div className='card_price'></div>
+                            <div className='card_title'>{product.product_name} - {version.version_name} </div>
+                            <div className='card_price'>{Number(version.price).toLocaleString()} VND</div>
                           </div>
                         </div>
                       </div>
@@ -49,9 +50,8 @@ const ProductComponent = () => {
                }
               )}
             </div>
-          </>
-        );
-        
+      </>
+    );
 }
 
-export default ProductComponent
+export default Versions

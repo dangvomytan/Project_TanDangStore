@@ -13,4 +13,9 @@ router.get('/getAllProductById/:id',productController.handleGetAllProductById);
 
 router.post('/addProductAll',productController.handleAddProductAll);
 
+router.get('/get-category-type-product',productController.get_category_type_product);
+router.get('/get-product-version-image-specification',productController.get_product_version_image_pecifications);
+router.get('/get_product_version_image_pecifications_like_productName',productController.get_product_version_image_pecifications);
+
+
 module.exports = router;

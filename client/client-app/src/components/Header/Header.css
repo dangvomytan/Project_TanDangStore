@@ -64,6 +64,10 @@ body {
   --color-box_shadow: #bdc3c7;
 
   --box_shadow: 1px 5px 10px var(--color-box_shadow);
+
+
+  --color_header_hover: rgb(104, 103, 103);
+  --color_header_text: #7f8c8d;
 }
 
 header {
@@ -104,7 +108,7 @@ gap: 1rem;
 .header_inner .search {
   flex-basis: 40%;
   position: relative;
-  border: 1px solid royalblue;
+  /* border: 1px solid royalblue; */
 }
 
 .header_inner .search .tbx_header_search {
@@ -119,6 +123,7 @@ gap: 1rem;
 }
 
 .search .btn_header_search {
+  height: 1.7rem;
   position: absolute;
   border: none;
   outline: none;
@@ -141,10 +146,11 @@ gap: 1rem;
   padding: 0.5rem 1rem;
   font-family: var(--font_text);
   border-radius: 0.5rem;
+  color: var(--color_header_text);
 }
 
 .header_inner .header_icon_nav .nav_icon:hover {
-  background-color: #e78e00;
+  background-color: var(--color_header_hover);
 }
 
 .header_inner .header_icon_nav .header_nav_icon_text {
